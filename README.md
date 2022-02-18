@@ -16,4 +16,4 @@
 </p>
 ## Stats
 
-![Hanjelito' Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=hanjelito&langs_count=8&layout=compact)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Hanjelito&theme=tokyonight)
