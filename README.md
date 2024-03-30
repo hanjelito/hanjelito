@@ -1,19 +1,46 @@
-<a href="mailto:jgonzales@peruyoung.com.com?subject=[GitHub]%20Contact&body=Hi%Angel%2C%0A%0AI%20come%20to%20you%20to%20talk%20you%20about%20..."><img src="https://img.shields.io/badge/e‑mail-D14836.svg?style=for-the-badge&logo=GMail&logoColor=white"/></a>
-<a href="https://linkedin.com/in/angel-gonzales-laura/"><img src="https://img.shields.io/badge/linkedin-0077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-<p align="center">
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="docker" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg" alt="java" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bash/bash-original.svg" alt="bash" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="chrome" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="chrome" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apple/apple-original.svg" alt="apple" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/windows8/windows8-original.svg" alt="windows" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="chrome" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ubuntu/ubuntu-plain.svg" alt="ubuntu" width="40" height="40"/>
-</p>
+```c
+#include <stdio.h>
+
+// 👤 Perfil Personal
+void perfil_personal() {
+    printf("👨‍💻 Angel Gonzales\n");
+    printf("🔗 LinkedIn: https://linkedin.com/in/angel-gonzales-laura\n");
+}
+
+// 🎓 Educación
+void educacion() {
+    printf("🏫 Universidad Católica San Pablo, Ingeniería Informática (2003 - 2007)\n");
+    printf("🏫 Universidad Continental, Ingeniería Industrial (2016 - 2019)\n");
+    printf("🏫 42 sede Madrid, Programador bajo nivel (2020)\n");
+}
+
+// 💼 Experiencia Laboral
+void experiencia_laboral() {
+    printf("🛠 Programador Senior en Madrid (01/2020 - 04/2021)\n");
+    printf("🛠 Consultor y Programador Senior en España (10/2019 - 11/2020)\n");
+    printf("🛠 Programador Senior, Studio Tigres (Arequipa Perú) (09/2017 - 07/2019)\n");
+}
+
+// 🛠 Habilidades Técnicas
+void habilidades_tecnicas() {
+    printf("🌐 Lenguajes: C, PHP, Python, JavaScript, NodeJS\n");
+    printf("🔧 Herramientas: Laravel, Docker, Kubernetes, Flutter, Symfony\n");
+    printf("💾 Bases de Datos: PostgreSQL, MySQL, MongoDB\n");
+}
+
+// 📫 Contacto
+void contacto() {
+    printf("Para más información o contacto, envíame un email a agonzales@peruyoung.com o visita mi perfil de LinkedIn.\n");
+}
+
+int main() {
+    perfil_personal();
+    educacion();
+    experiencia_laboral();
+    habilidades_tecnicas();
+    contacto();
+    return 0;
+}
 ## Stats
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Hanjelito&theme=tokyonight)
