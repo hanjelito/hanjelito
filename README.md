@@ -1,67 +1,116 @@
-```c
-#include <stdio.h>
+```go
+package main
 
-// ANSI escape codes for colors
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define CYAN    "\033[36m"
-#define RESET   "\033[0m"
-#define BOLD    "\033[1m"
+import (
+	"fmt"
+	"strings"
+)
 
-// 👤 Personal Profile
-void personal_profile() {
-    printf(BOLD CYAN "👨‍💻 Angel Gonzales Laura\n" RESET);
-    printf("🌍 Location: Madrid, Spain\n");
-    printf("🔗 LinkedIn: https://linkedin.com/in/angel-gonzales-laura\n");
-    printf("🐙 GitHub: https://github.com/hanjelito\n");
-    printf("🌐 Web: https://peruyoung.com\n\n");
+const (
+	cyan  = "\033[36m"
+	green = "\033[32m"
+	bold  = "\033[1m"
+	reset = "\033[0m"
+)
+
+type Section struct {
+	Title string
+	Lines []string
 }
 
-// 🎓 Education
-void education() {
-    printf(BOLD GREEN "🎓 Education\n" RESET);
-    printf("📚 Computer Engineering - UCSP (2003 - 2007)\n");
-    printf("📚 Industrial Engineering - Continental University (2016 - 2019)\n");
-    printf("🧠 42 Madrid - Low-level Programming (2020 - in progress)\n\n");
+type Result struct {
+	Index int
+	Text  string
 }
 
-// 💼 Experience
-void work_experience() {
-    printf(BOLD GREEN "💼 Work Experience\n" RESET);
-    printf("🔧 Independent Consultant - QUASAR / COMEX (2025 - Present)\n");
-    printf("🔧 Libertad Digital - Senior Backend Dev (2021 - 2025)\n");
-    printf("🔧 APROS / Studio Tigres (2017 - 2021)\n");
-    printf("🔧 Apros: Consultores Digitales (2014 - 2017)\n\n");
+func renderSection(index int, section Section, results chan<- Result) {
+	var output strings.Builder
+
+	fmt.Fprintf(&output, "\n%s%s%s\n", bold+green, section.Title, reset)
+	fmt.Fprintln(&output, "----------------------------------------")
+
+	for _, line := range section.Lines {
+		fmt.Fprintln(&output, line)
+	}
+
+	results <- Result{
+		Index: index,
+		Text:  output.String(),
+	}
 }
 
-// 🛠 Technical Skills
-void technical_skills() {
-    printf(BOLD GREEN "🛠 Technical Skills\n" RESET);
-    printf("💻 Languages: C, C++, Go, Python, PHP, JavaScript, TS, Kotlin, Bash\n");
-    printf("🔧 Tools: Docker, Kubernetes, n8n, Linux, Git, Jira\n");
-    printf("🧰 Frameworks: NestJS, Laravel, Symfony, Flutter\n");
-    printf("🗄️ Databases: PostgreSQL, MySQL, MongoDB\n");
-    printf("☁️ Cloud: AWS, GCP, Azure\n\n");
+func main() {
+	fmt.Printf("%s%s👨‍💻 Angel Gonzales Laura%s\n", bold, cyan, reset)
+	fmt.Println("Tech Lead & Backend Engineer | Madrid, Spain")
+	fmt.Println("🔗 LinkedIn: https://linkedin.com/in/angel-gonzales-laura")
+	fmt.Println("🐙 GitHub:   https://github.com/hanjelito")
+	fmt.Println("🌐 Website:  https://peruyoung.com")
+
+	sections := []Section{
+		{
+			Title: "💼 What I do",
+			Lines: []string{
+				"I design and build backend systems, lead technical decisions,",
+				"and help teams turn complex requirements into maintainable software.",
+			},
+		},
+		{
+			Title: "🛠️ Core technologies",
+			Lines: []string{
+				"Languages: Go, TypeScript, JavaScript, Python",
+				"Backend:   Node.js, NestJS, microservices, REST, gRPC",
+				"Data:      PostgreSQL, Redis",
+				"Tools:     Docker, Git, Linux",
+			},
+		},
+		{
+			Title: "🚀 Current focus",
+			Lines: []string{
+				"• Backend architecture and technical leadership",
+				"• Streaming platforms and scalable services",
+				"• AI agents, MCP integrations, and automation",
+				"• Speech technologies: STT and TTS",
+			},
+		},
+		{
+			Title: "🎓 Education",
+			Lines: []string{
+				"Computer Engineering — UCSP (2003–2007)",
+				"Industrial Engineering — Continental University (2016–2019)",
+				"42 Madrid — Low-level programming (2020–present)",
+			},
+		},
+		{
+			Title: "💼 Experience",
+			Lines: []string{
+				"Tech Lead & Backend Engineer — CodeZone (2026–present)",
+				"Backend engineering and consulting — Previous projects",
+			},
+		},
+	}
+
+	results := make(chan Result, len(sections))
+
+	// Render each section concurrently.
+	for i, section := range sections {
+		go renderSection(i, section, results)
+	}
+
+	// Collect the results while keeping the original display order.
+	rendered := make([]string, len(sections))
+	for range sections {
+		result := <-results
+		rendered[result.Index] = result.Text
+	}
+	close(results)
+
+	for _, section := range rendered {
+		fmt.Print(section)
+	}
+
+	fmt.Printf("\n%s%sBuilding reliable software, one system at a time.%s\n",
+		bold, cyan, reset)
 }
-
-// 🧠 Interests
-void interests() {
-    printf(BOLD GREEN "📌 Interests\n" RESET);
-    printf("⚙️ Workflow automation, System architecture, Data engineering\n");
-    printf("☁️ Cloud-native development, DevOps, AI/ML scraping tools\n\n");
-}
-
-int main() {
-    personal_profile();
-    education();
-    work_experience();
-    technical_skills();
-    interests();
-    printf(BOLD RED ">>> Compiled with passion and over 20 years of experience! 🔥\n" RESET);
-    return 0;
-}
-
-
 ```
 ## Stats
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Hanjelito&theme=tokyonight)
